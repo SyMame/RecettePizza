@@ -11,13 +11,21 @@ var recette= new mongoose.Schema({
 	id : Schema.ObjetId,
 	nom: String,
 	description: String,
-	ingredients:[ingredients],
+	ingredients:[ingredients]
 })
+ var ingredients = new mongoose.Schema({
+ 	nom :String,
+ 	description: String,
+ 	mesure: int,
+ 	tempsdecuisson:int 
+ })
 
-app.get('/',(req, res)=>{
-    	console.log("hello");
-		res.status(200);
-});
+app.get("/recette", (req,res)=>{
+	res.status(200).json(recette)
+})
+app.post ('/recette', (req,res)=>{
+	res.status.json(recette)
+})
 
 app.listen(3000,function(){
     console.log('HTTP server started on port 3000');
